@@ -1,0 +1,37 @@
+:root {
+  line-height: 1.5;
+  font-weight: 400;
+  --main-background-color--:white;
+  --main-color--:black;
+  --minor-color--:#A0A0A0;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+*{
+  margin:0;
+  box-sizing: border-box;
+  padding:0;
+}
+
+
+.nav{
+    display:fixed
+}
+.nav-container{
+  display:flex;
+}
+
+.nav-a{
+  font-family: din-2014, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.test{
+  font-family: din-2014, sans-serif;
+font-weight: 400;
+font-style: normal;
+}
