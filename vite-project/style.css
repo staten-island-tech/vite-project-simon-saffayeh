@@ -223,3 +223,26 @@ button:hover {
   width: 100%;
   transform: scaleX(1);
 }
+
+/* cards */
+#container-cards{
+  display:flex;
+  width:100%;
+  flex-wrap: wrap;
+}
+.card{
+  display:flex;
+  width:32%;
+  background-color: blueviolet;
+  margin:10px;
+  height:500px;
+  justify-content: space-around;
+  justify-content: center;
+  flex-direction: column;
+  padding:10px;
+}
+
+.card-img{
+  height:50%;
+  object-fit: cover;
+}
