@@ -30,7 +30,7 @@
 }
 
 .navbar {
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
   background: rgb(214, 214, 214);
   color: black;
@@ -245,4 +245,8 @@ button:hover {
 .card-img{
   height:50%;
   object-fit: cover;
+}
+
+#breadcrumbs-list{
+  margin-top:5%;
 }

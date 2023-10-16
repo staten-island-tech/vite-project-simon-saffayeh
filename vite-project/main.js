@@ -12,31 +12,40 @@ data.forEach((i) => {
 });
 
 const currentUrl = window.location.pathname;
+console.log(currentUrl.substring(1))
 let breadcrumbs = currentUrl.split("/").filter(Boolean); // Split URL and remove empty elements
+let lastbreadcrumb = breadcrumbs[breadcrumbs.length - 1];
+
 // Function to generate breadcrumbs based on the current URL or page context
 function generateBreadcrumbs() {
-  var breadcrumbsContainer = document.getElementById("breadcrumbs-list");
+  let breadcrumbsContainer = document.getElementById("breadcrumbs-list");
   breadcrumbsContainer.innerHTML = ""; // Clear previous breadcrumbs
 
-  var breadcrumbPath = "";
-  breadcrumbs.forEach(function (breadcrumb, index) {
+  let breadcrumbPath = "";
+  breadcrumbsList.forEach(element => {
+    element
+    if(element.includes(currentUrl.substring(1))){
+      console.log(element)
+
+    }
+  });
+/*   breadcrumbs.forEach(function (breadcrumb, index) {
+    console.log(breadcrumbPath)
     breadcrumbPath += "/" + breadcrumb;
-    var breadcrumbItem = document.createElement("li");
+    let breadcrumbItem = document.createElement("li");
     breadcrumbItem.innerHTML =
       '<a href="' + breadcrumbPath + '">' + breadcrumbsList[index] + "</a>";
     breadcrumbsContainer.appendChild(breadcrumbItem);
-  });
+  }); */
 }
 
 // Call the function to generate breadcrumbs when the page loads
 window.onload = generateBreadcrumbs;
 
-breadcrumbs = ["Fashion Trainers"];
-let lastbreadcrumb = breadcrumbs[breadcrumbs.length - 1];
+// breadcrumbs = ["Shoes"];
 data.forEach((i) => {
   if(i["breadcrumbs"].includes(lastbreadcrumb)){
-    console.log(i["asin"])
-    console.log(final_entries)
+    final_entries++;
   }
   if (i["breadcrumbs"].includes(lastbreadcrumb) && total_entries < max_entries) {
       total_entries += 1;
@@ -72,10 +81,14 @@ function loadMore(){
   data.forEach((i) => {
     if(i["breadcrumbs"].includes(lastbreadcrumb)){
       current_entries += 1
-      console.log(current_entries)
+
+
+      // console.log(current_entries)
     }
-    if (i["breadcrumbs"].includes(lastbreadcrumb) && max_entries > total_entries && current_entries >= total_entries && total_entries <= final_entries) {
+    if (i["breadcrumbs"].includes(lastbreadcrumb) && max_entries >= total_entries && current_entries >= total_entries && total_entries <= final_entries) {
         total_entries += 1;
+
+
         document.getElementById("container-cards").innerHTML += `
               <div class = "card">
               <h3>${i["title"]}</h3>
@@ -93,4 +106,4 @@ $(window).scroll(function() {
   }
 });
 
-//make it so i can see earlier breadcrumbs ex. animals/dogs, animals should still displayt something
+//make it so it gets rid of duplicates
