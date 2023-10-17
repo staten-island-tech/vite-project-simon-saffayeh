@@ -11,7 +11,8 @@ data.forEach((i) => {
   }
 });
 
-const currentUrl = window.location.pathname;
+let currentUrl = window.location.pathname;
+currentUrl = currentUrl.replace(/%20/g, " ");
 console.log(currentUrl.substring(1))
 let breadcrumbs = currentUrl.split("/").filter(Boolean); // Split URL and remove empty elements
 let lastbreadcrumb = breadcrumbs[breadcrumbs.length - 1];
@@ -22,23 +23,15 @@ function generateBreadcrumbs() {
   breadcrumbsContainer.innerHTML = ""; // Clear previous breadcrumbs
 
   let breadcrumbPath = "";
-  breadcrumbsList.forEach(element => {
-    element
-    if(element.includes(currentUrl.substring(1))){
-      console.log(element)
-
-    }
-  });
-/*   breadcrumbs.forEach(function (breadcrumb, index) {
+  breadcrumbs.forEach(function (breadcrumb, index) {
     console.log(breadcrumbPath)
     breadcrumbPath += "/" + breadcrumb;
     let breadcrumbItem = document.createElement("li");
     breadcrumbItem.innerHTML =
-      '<a href="' + breadcrumbPath + '">' + breadcrumbsList[index] + "</a>";
+      '<a class = "breadcrumb-a" href="' + breadcrumbPath + '">' + breadcrumbs[index] + "</a>";
     breadcrumbsContainer.appendChild(breadcrumbItem);
-  }); */
+  }); 
 }
-
 // Call the function to generate breadcrumbs when the page loads
 window.onload = generateBreadcrumbs;
 
@@ -107,3 +100,4 @@ $(window).scroll(function() {
 });
 
 //make it so it gets rid of duplicates
+//make it so it doiesnt load doc until everything is loaded
