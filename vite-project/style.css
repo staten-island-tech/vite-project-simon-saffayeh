@@ -27,6 +27,7 @@
   max-width: 1200px;
   width: 90%;
   margin: auto;
+  justify-content: center;
 }
 
 .navbar {
@@ -275,7 +276,7 @@ ul.breadcrumbs-list li+li:before {
 }
 
 .breadcrumb-a{
-  text-decoration: none;
+  text-decoration: underline;
   color:black;
   transition-duration: 100ms;
 }
